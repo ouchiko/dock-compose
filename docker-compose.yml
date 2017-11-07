@@ -21,3 +21,10 @@ services:
         image: php:7.0-apache
         ports:
             - 81:80
+    screenshot:
+        build: ./screenshot
+        container_name: screenshot
+        volumes:
+            - ./screenshot:/var/screenshot/
+        ports:
+            - 8888:8888
