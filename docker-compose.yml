@@ -22,7 +22,11 @@ services:
         ports:
             - 81:80
     screenshot:
-        build: ./screenshot
-        container_name: screenshot
+        build:
+            context: ./screenshot
+            dockerfile: Dockerfile
+        security_opt:
+            - seccomp:unconfined
         ports:
-            - 8888:8888
+            - 5002:80
+            - 9222:9222
