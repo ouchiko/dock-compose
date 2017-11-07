@@ -24,7 +24,5 @@ services:
     screenshot:
         build: ./screenshot
         container_name: screenshot
-        volumes:
-            - ./screenshot:/var/screenshot/
         ports:
             - 8888:8888
