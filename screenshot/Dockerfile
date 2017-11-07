@@ -29,7 +29,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN mkdir /usr/src/app/shots
+#RUN mkdir /usr/src/app/shots
 
 EXPOSE 80
 

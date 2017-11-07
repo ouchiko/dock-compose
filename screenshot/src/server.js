@@ -19,7 +19,7 @@ var server = http.createServer(function(req, res) {
     var uri = url.parse(req.url).pathname;
     var urlObj = url.parse(req.url, true);
     var screenshot = urlObj.query.q;
-    
+
     if (screenshot != undefined) {
         var filename = "./shots/test.png";
 
@@ -28,7 +28,7 @@ var server = http.createServer(function(req, res) {
 
         puppeteer.launch({args: ['--no-sandbox']}).then(async browser => {
           const page = await browser.newPage();
-          await page.setViewport({width: 1200, height: 3000});
+          await page.setViewport({width: 1200, height: 1000});
           await page.goto(screenshot);
           await page.screenshot({path: filename});
           await browser.close();
@@ -44,10 +44,33 @@ var server = http.createServer(function(req, res) {
                 }
                 console.log("Sending    : Image");
 
-                res.writeHead(200, {'Content-Type':'image/png'});
 
-                var fileStream = fs.createReadStream(filename);
-                fileStream.pipe(res);
+
+                fs.readFile(filename, function read(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+                    content = data;
+
+                    var b64content = content.toString('base64');
+
+                    var json = {
+                        'requested': screenshot,
+                        'content': b64content
+
+                    };
+
+                    // Invoke the next step here however you like
+                    res.writeHead(200, {'Content-Type':'text/plain'});
+                    res.write(JSON.stringify(json));
+                    res.end();
+
+
+
+
+                });
+
+                
 
             }); //end path.exists
         });
