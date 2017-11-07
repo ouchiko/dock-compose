@@ -1,26 +1,26 @@
 version: '3'
 services:
     hotelsearch:
-        build: ./hotelsearch
+        #build: ./hotelsearch
         volumes:
             - ./hotelsearch:/var/www/html
         image: php:7.0-apache
         ports:
             - 5000:80
     imageserver:
-        build: ./imageserver
+        #build: ./imageserver
         volumes:
             - ./imageserver:/var/www/html
         image: php:7.0-apache
         ports:
             - 5001:80
     website:
-        build: ./website
+        #build: ./website
         volumes:
             - ./website:/var/www/html
         image: php:7.0-apache
         ports:
-            - 81:80
+            - 80:80
     screenshot:
         build:
             context: ./screenshot
@@ -29,4 +29,3 @@ services:
             - seccomp:unconfined
         ports:
             - 5002:80
-            - 9222:9222
