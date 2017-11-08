@@ -15,6 +15,11 @@ COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
 
 RUN cat /etc/apache2/sites-available/*.conf
 
+RUN php artisan key:generate
+RUN php artisan config:clear
+RUN php artisan config:cache
+
+
 WORKDIR /var/www/html
 #COPY ./src/webcoding .
 #RUN ls -l /var/www/html
