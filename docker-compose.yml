@@ -21,7 +21,7 @@ services:
         volumes:
             - ./website/src/webcoding:/var/www/html
         ports:
-            - 80:80
+            - 81:80
     screenshot:
         build:
             context: ./screenshot
