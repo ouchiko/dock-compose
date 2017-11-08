@@ -15,7 +15,6 @@ class HomePageController extends Controller
             view(
                 'homepage',
                 array(
-                    'image'=>$data['image'],
                     'hotels'=>$data['hotels'],
                     'images'=>$data['images']
                 )

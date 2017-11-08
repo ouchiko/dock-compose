@@ -10,7 +10,7 @@
                 <h2>{{$hotels}}</h2>
                 <h2>{{$images}}</h2>
             </div>
-            <img src="data:image/png;base64,{{$image->content}}"/>"
+            
         </div>
     </body>
 </html>

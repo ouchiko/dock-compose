@@ -17,13 +17,12 @@ class Homepage
     {
         $hotels = file_get_contents("http://hotelsearch/index.php");
         $images = file_get_contents("http://imageserver/index.php");
-        $image = file_get_contents("http://screenshot/?q=http://www.bbc.co.uk");
-        $image = json_decode($image);
+        // $image = file_get_contents("http://screenshot/?q=http://www.bbc.co.uk");
+        // $image = json_decode($image);
 
         return array(
             "hotels"=>$hotels,
-            "images"=>$images,
-            "image"=>$image
+            "images"=>$images
         );
     }
 }
