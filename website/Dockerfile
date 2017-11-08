@@ -1,7 +1,7 @@
 FROM php:7.0-apache
 
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git zip unzip
 
 RUN a2enmod rewrite
 
@@ -17,9 +17,14 @@ RUN cat /etc/apache2/sites-available/*.conf
 
 WORKDIR /var/www/html
 COPY ./src/webcoding .
-RUN ls -l
+RUN ls -l /var/www/html
+RUN mkdir /var/www/html/vendor
+RUN chmod 777 /var/www/html/vendor
+#RUN ls -l /src/webcoding/vendor
 
+RUN php composer.phar update --no-scripts 
 RUN php composer.phar install
+RUN php composer.phar update --no-scripts
 
 
 #COPY config/php.ini /usr/local/etc/php/
