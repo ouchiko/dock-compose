@@ -1,4 +1,6 @@
 <?php
+// print_r(scandir("/var/www/html/"));
+// exit;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *

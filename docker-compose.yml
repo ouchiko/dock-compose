@@ -30,3 +30,9 @@ services:
             - seccomp:unconfined
         ports:
             - 5002:80
+    composer:
+        restart: 'no'
+        image: composer/composer:php7
+        command: install
+        volumes:
+            - ./website/src/webcoding:/app

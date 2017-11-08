@@ -16,15 +16,16 @@ COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
 RUN cat /etc/apache2/sites-available/*.conf
 
 WORKDIR /var/www/html
-COPY ./src/webcoding .
-RUN ls -l /var/www/html
-RUN mkdir /var/www/html/vendor
-RUN chmod 777 /var/www/html/vendor
+#COPY ./src/webcoding .
+#RUN ls -l /var/www/html
+#RUN mkdir /var/www/html/vendor
+#RUN chmod 777 /var/www/html/vendor
 #RUN ls -l /src/webcoding/vendor
 
-RUN php composer.phar update --no-scripts 
-RUN php composer.phar install
-RUN php composer.phar update --no-scripts
+#RUN php composer.phar update --no-scripts
+#RUN php composer.phar install
+#RUN php composer.phar update --no-scripts
 
+#RUN ls -l /var/www/html/vendor
 
 #COPY config/php.ini /usr/local/etc/php/
