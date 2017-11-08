@@ -22,6 +22,10 @@ services:
             - ./website/src/webcoding:/var/www/html
         ports:
             - 80:80
+        command:
+            - php artisan key:generate
+            - php artisan config:clear
+            - php artisan config:cache
     screenshot:
         build:
             context: ./screenshot
