@@ -21,7 +21,7 @@ var server = http.createServer(function(req, res) {
     var screenshot = urlObj.query.q;
     /* Ensure we have a screenshot */
     if (screenshot != undefined) {
-        var filename = "./shots/test.png";
+        var filename = "/tmp/test.png";
         console.log("Screenshot : " + screenshot);
         console.log("Saving     : " + filename);
         /* Run Chrome Headless */

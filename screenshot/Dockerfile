@@ -29,8 +29,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN mkdir /usr/src/app/shots
-
 EXPOSE 80
 
 ENTRYPOINT ["node","./src/server.js"]
