@@ -13,8 +13,8 @@ $image = json_decode($image);
     </head>
     <body>
         <h1>I am the webserver</h1>
-        <h2><?=$hotels?></h2>
-        <h2><?=$images?></h2>
+        <h2>{$hotels}</h2>
+        <h2>{$images}</h2>
         <h2>Image from NodeJS Server Headless Chrome</h2>
         <img src="data:image/png;base64,<?=$image->content;?>"/>
     </body>

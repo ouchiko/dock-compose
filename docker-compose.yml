@@ -15,10 +15,11 @@ services:
         ports:
             - 5001:80
     website:
-        #build: ./website
+        build:
+            context: ./website
+            dockerfile: Dockerfile
         volumes:
-            - ./website:/var/www/html
-        image: php:7.0-apache
+            - ./website/src/webcoding:/var/www/html
         ports:
             - 80:80
     screenshot:
