@@ -24,6 +24,33 @@ class HomePageController extends Controller
         );
     }
 
+    public function images1(Request $request, $protocol, $url)
+    {
+        //$imageSource = $request->get("url");
+
+        if (isset($protocol) && preg_match("/^http|^https/", $protocol)) {
+
+            $homepage = new Homepage();
+            $data = $homepage->generateImage($protocol."://".$url);
+
+            return response(
+                view(
+                    'images',
+                    array(
+                        'source'=>$data['source'],
+                        'content'=>$data['content']
+                    )
+                ),
+                200,
+                ['Content-Type' => 'text/html']
+            );
+        } else {
+            return response(
+                view('no_image')
+            );
+        }
+    }
+
     public function images(Request $request)
     {
         $imageSource = $request->get("url");

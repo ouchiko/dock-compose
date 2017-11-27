@@ -13,6 +13,7 @@
 
 Route::get("/", 'HomePageController@index');
 Route::get("/images", "HomePageController@images");
+Route::get("/images/{protocol}/{url}", "HomePageController@images1");
 
 // Route::get('/', function () {
 //     return view('homepagetest',);
